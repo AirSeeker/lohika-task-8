@@ -1,0 +1,38 @@
+{
+  "name": "event-driven-reservation-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:unit": "mocha test/unit",
+    "test:integration": "mocha --exit --timeout=20000 test/integration",
+    "test:all": "mocha --exit --timeout=20000 --recursive test",
+    "test:coverage": "nyc --reporter=html npm run test:all",
+    "start": "export NODE_ENV=production || SET \"NODE_ENV=production\" && node index.js",
+    "start:reservation-worker": "export NODE_ENV=production || SET \"NODE_ENV=production\" && node tasks/reservation-worker.js",
+    "start:notification-worker": "export NODE_ENV=production || SET \"NODE_ENV=production\" && node tasks/notification-worker.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "joi": "^13.7.0",
+    "joi-date-extensions": "^1.2.0",
+    "knex": "^0.15.2",
+    "moment": "^2.22.2",
+    "nodemailer": "^4.6.8",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "sinon": "^6.3.4",
+    "supertest": "^3.3.0"
+  }
+}
